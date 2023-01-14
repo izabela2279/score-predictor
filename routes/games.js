@@ -1,9 +1,12 @@
 import { Router } from 'express'
 import * as gamesCtrl from '../controllers/games.js'
+import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.get('/new', gamesCtrl.new)
+router.get("/", gamesCtrl.index)
+router.get("/:id", gamesCtrl.show)
+router.get('/new', isLoggedIn, gamesCtrl.new)
 
 export {
 	router

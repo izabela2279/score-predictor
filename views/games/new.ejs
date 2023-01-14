@@ -1,0 +1,16 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+<section>
+  <h1><%= title %></h1>
+  <form id="new-form" action="" method="">
+    <label for="title-input">Title:</label>
+    <input type="text" name="title" id="title-input">
+    <label for="date-input">Match Date:</label>
+    <input type="date" name="date" id="date-input">
+    <button type="submit">Add Game</button>
+  </form>
+</section>
+  
+  <%- include('../partials/footer') %>
