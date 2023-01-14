@@ -11,9 +11,6 @@ const gameSchema = new Schema({
     type: Date,
     required: true,
   },
-  time: {
-    type: time,
-  },
 }, {
   timestamps: true
 })
