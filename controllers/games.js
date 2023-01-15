@@ -39,8 +39,8 @@ function index(req, res) {
 function show(req, res) {
   Game.findById(req.params.id)
   .then(game => {
-    res.render('games/show', { 
-      title: 'Game Detail', 
+    res.render("games/show", { 
+      title: "Game Detail", 
       game: game,
     })    
   })
@@ -50,9 +50,21 @@ function show(req, res) {
   })
 }
 
+function deleteGame(req, res) {
+  Game.findByIdAndDelete(req.params.id)
+  .then(game => {
+    res.redirect("/games") 
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
+  })
+}
+
 export {
   index,
   newGame as new,
   create,
   show,
+  deleteGame as delete,
 }
