@@ -75,6 +75,21 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  for (const key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  Game.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(game => {
+    console.log(game);
+    res.redirect(`/games/${game._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   newGame as new,
@@ -82,4 +97,5 @@ export {
   show,
   deleteGame as delete,
   edit,
+  update,
 }
