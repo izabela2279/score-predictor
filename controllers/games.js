@@ -14,7 +14,7 @@ function create(req, res) {
   Game.create(req.body)
   .then(game => {
     console.log(game);
-    res.redirect(`/games/${game._id}`)
+    res.redirect("/games")
   })
   .catch(err => {
     console.log(err)
