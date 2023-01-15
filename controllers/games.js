@@ -61,10 +61,25 @@ function deleteGame(req, res) {
   })
 }
 
+function edit(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    res.render("games/edit", { 
+      title: "Edit Game", 
+      game,
+    })    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   newGame as new,
   create,
   show,
   deleteGame as delete,
+  edit,
 }
