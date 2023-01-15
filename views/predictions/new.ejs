@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Game Prediction</h1>
+  <form id="add-prediction-form" action="/predictions" method="POST">
+    <label for="home-input">Home Team:</label>
+    <input type="text" name="title" id="home-input">
+    <label for="home-score-input">Home Score:</label>
+    <input type="number" name="score" id="home-score-input">
+    <label for="away-input">Away Team:</label>
+    <input type="text" name="title" id="away-input">
+    <label for="away-score-input">Away Score:</label>
+    <input type="number" name="score" id="away-score-input">
+    <button type="submit">Add Prediction</button>
+  </form>
+</section>
+  
+  <%- include('../partials/footer') %>
