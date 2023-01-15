@@ -36,8 +36,23 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    res.render('games/show', { 
+      title: 'Game Detail', 
+      game: game,
+    })    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   newGame as new,
   create,
+  show,
 }

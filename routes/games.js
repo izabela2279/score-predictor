@@ -5,8 +5,8 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 router.get("/", gamesCtrl.index)
-// router.get("/:id", gamesCtrl.show)
 router.get('/new', isLoggedIn, gamesCtrl.new)
+router.get('/:id', gamesCtrl.show)
 router.post("/", gamesCtrl.create)
 
 export {
