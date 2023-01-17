@@ -14,9 +14,6 @@ function newPrediction(req, res) {
 }
 
 function create(req, res) {
-  for (const key in req.body) {
-    if(req.body[key] === "") delete req.body[key]
-  }
   Prediction.create(req.body)
   .then(prediction => {
     res.redirect("/predictions/new")

@@ -4,6 +4,17 @@
 
 <section>
   <h1>Game Prediction</h1>
+  <p>
+    Only one prediction per game
+    <section>
+      <% predictions.forEach(prediction => { %>
+        <div><%= prediction.homeTeam %></div>
+        <div><%= prediction.homeScore %></div>
+        <div><%= prediction.awayTeam %></div>
+        <div><%= prediction.awayScore %></div>
+      <% }) %>
+      </section>
+  </p>
   <form id="add-prediction-form" action="/predictions" method="POST">
     <label for="home-input">Home Team:</label>
     <input type="text" name="title" id="home-input">
