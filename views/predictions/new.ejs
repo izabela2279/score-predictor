@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/style.css" />
 <%- include('../partials/nav') %>
 
-<section>
+<main>
   <h1>Game Prediction</h1>
   <p>
     Only one prediction per game
@@ -17,15 +17,15 @@
   </p>
   <form id="add-prediction-form" action="/predictions" method="POST">
     <label for="home-input">Home Team:</label>
-    <input type="text" name="title" id="home-input">
+    <input type="text" name="homeTeam" id="home-input">
     <label for="home-score-input">Home Score:</label>
-    <input type="number" name="score" id="home-score-input">
+    <input type="number" name="homeScore" id="home-score-input">
     <label for="away-input">Away Team:</label>
-    <input type="text" name="title" id="away-input">
+    <input type="text" name="awayTeam" id="away-input">
     <label for="away-score-input">Away Score:</label>
-    <input type="number" name="score" id="away-score-input">
+    <input type="number" name="awayScore" id="away-score-input">
     <button type="submit">Add Prediction</button>
   </form>
-</section>
+</main>
   
   <%- include('../partials/footer') %>
