@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Players</h1>
+  <p>
+    Only add players not listed
+    <section>
+      <% players.forEach(player => { %>
+        <div><%= player.player %></div>
+      <% }) %>
+      </section>
+  </p>
+  <form id="add-player-form" action="/players" method="POST">
+    <label for="player-input">Player:</label>
+    <input type="text" name="player" id="player-input">
+    <button type="submit">Add Player</button>
+  </form>
+</main>
+  
+  <%- include('../partials/footer') %>
