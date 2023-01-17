@@ -25,7 +25,7 @@
   <form id="add-player-prediction" action="/games/<%= game._id %>/players" method="POST">
     <select name="playerId">
       <% players.forEach(player => { %>
-        <option value="<%= player._id %>"><%= player.name %></option>
+        <option value="<%= player._id %>"><%= player.player %></option>
       <% }) %>
     </select>
     <button type="submit">Add Player</button>

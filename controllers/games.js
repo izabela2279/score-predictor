@@ -100,6 +100,26 @@ function update(req, res) {
   })
 }
 
+function addToPlayerPrediction(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    game.playerPrediction.push(req.body.playerId)
+    game.save()
+		.then(() => {
+		  res.redirect(`/games/${game._id}`)
+		})
+    .catch(err => {
+      console.log(err);
+      res.redirect("/games")
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect("/games")
+  })
+}
+
+
 export {
   index,
   newGame as new,
@@ -108,4 +128,5 @@ export {
   deleteGame as delete,
   edit,
   update,
+  addToPlayerPrediction,
 }

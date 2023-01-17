@@ -12,6 +12,7 @@ router.get("/:id/edit", gamesCtrl.edit)
 router.put("/:id", gamesCtrl.update)
 
 router.post("/", gamesCtrl.create)
+router.post("/:id/players", gamesCtrl.addToPlayerPrediction)
 
 router.delete("/:id", gamesCtrl.delete)
 
