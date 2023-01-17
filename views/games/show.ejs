@@ -14,7 +14,23 @@
         <button>Edit Game</button>
       </a>
     </div>
+    <div>Player Score Prediction:</div>
+    <ul>
+      <% game.playerPrediction.forEach(player => { %>
+        <li><%= player.player %></li>
+      <% }) %>
+    </ul>
   </section>
+
+  <form id="add-player-prediction" action="/games/<%= game._id %>/players" method="POST">
+    <select name="playerId">
+      <% players.forEach(player => { %>
+        <option value="<%= player._id %>"><%= player.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add Player</button>
+  </form>
+
 </main>
   
   <%- include('../partials/footer') %>

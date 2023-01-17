@@ -1,4 +1,5 @@
 import { Game } from "../models/game.js"
+import { Player } from "../models/player.js"
 
 function newGame(req, res) {
   res.render("games/new", {
@@ -14,7 +15,7 @@ function create(req, res) {
   Game.create(req.body)
   .then(game => {
     console.log(game);
-    res.redirect("/games")
+    res.redirect(`/games/${game._id}`)
   })
   .catch(err => {
     console.log(err)
@@ -38,11 +39,20 @@ function index(req, res) {
 
 function show(req, res) {
   Game.findById(req.params.id)
+  .populate("playerPrediction")
   .then(game => {
-    res.render("games/show", { 
-      title: "Game Detail", 
-      game: game,
-    })    
+    Player.find({_id: {$nin: game.playerPrediction}})
+    .then (players => {
+      res.render("games/show", { 
+        title: "Game Detail", 
+        game: game,
+        players: players,
+      }) 
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/games")    
+    })
   })
   .catch(err => {
     console.log(err)

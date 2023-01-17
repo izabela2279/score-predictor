@@ -11,6 +11,7 @@ const gameSchema = new Schema({
     type: Date,
     required: true,
   },
+  playerPrediction: [{type: Schema.Types.ObjectId, ref: "Player"}]
 }, {
   timestamps: true
 })
