@@ -10,8 +10,10 @@ h1 {
 }
 
 #new-form {
+  border: 5px solid white;
   display: grid;
   justify-content: space-around;
+  padding: 20px;
 }
 
 label, input {
@@ -33,4 +35,3 @@ button:hover {
   border: 5px solid white;
   padding: 20px;
 }
-  

@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="/stylesheets/games/new.css" />
 <%- include('../partials/nav') %>
 
-<section>
-  <h1>Game List</h1>
+<main>
+  <h1>Add New Game</h1>
   <form id="new-form" action="/games" method="POST">
     <label for="title-input">Title:</label>
     <input type="text" name="title" id="title-input">
@@ -11,6 +11,6 @@
     <input type="date" name="date" id="date-input">
     <button type="submit">Add Game</button>
   </form>
-</section>
+</main>
   
   <%- include('../partials/footer') %>

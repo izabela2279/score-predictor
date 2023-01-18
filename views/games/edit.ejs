@@ -1,8 +1,8 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/games/edit.css" />
 <%- include('../partials/nav') %>
 
-<section>
+<main>
   <h1><%= title %></h1>
   <form id="new-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
     <label for="title-input">Title:</label>
@@ -11,6 +11,6 @@
     <input type="date" name="date" id="date-input">
     <button type="submit">Update</button>
   </form>
-</section>
+</main>
   
   <%- include('../partials/footer') %>
