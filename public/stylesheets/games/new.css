@@ -1,0 +1,31 @@
+section {
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+h1 {
+  display:flex;
+  justify-content: center;
+}
+
+#new-form {
+  display: grid;
+  justify-content: space-around;
+}
+
+label, input {
+  margin: 10px;
+}
+
+button {
+  margin: 15px;
+  padding: 5px;
+}
+
+button:hover {
+  color: white;
+  background-color: green;
+  border: 2px solid white;
+}
+  
