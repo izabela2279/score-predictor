@@ -28,4 +28,9 @@ button:hover {
   background-color: green;
   border: 2px solid white;
 }
+
+#box {
+  border: 5px solid white;
+  padding: 20px;
+}
   
