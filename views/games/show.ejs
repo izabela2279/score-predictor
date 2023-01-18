@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/games/show.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -14,7 +14,7 @@
         <button>Edit Game</button>
       </a>
     </div>
-    <div>Select player you predict will make a goal in this game:</div>
+    <h2>Select player you predict will make a goal in this game:</h2>
     <ul>
       <% game.playerPrediction.forEach(player => { %>
         <li><%= player.player %></li>
@@ -31,9 +31,9 @@
     <button type="submit">Add Player</button>
   </form>
 
-  <h2>Score Prediction</h2>
+  <h3>Score Prediction</h3>
   <% if (user) { %>
-    <h3>Add a prediction</h3>
+    <h4>Add a prediction</h4>
     <ul>
       <% game.scorePrediction?.forEach(prediction => { %>
         <li>
@@ -53,7 +53,7 @@
         </li> 
       <% }) %>
     </ul>
-    <form action="/games/<%= game._id %>/scorePrediction" method="POST">
+    <form id="add-prediction-form" action="/games/<%= game._id %>/scorePrediction" method="POST">
       <label for="home-score-input">Home Score:</label>
       <input type="number" name="homeScore" id="home-score-input">
       <label for="away-score-input">Away Score:</label>
