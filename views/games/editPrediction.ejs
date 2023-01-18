@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit your prediction!</h1>
+  <form 
+    action="/games/<%= game._id %>/scorePrediction/<%= prediction._id %>?_method=PUT"
+    method="POST"
+  >
+    <label for="home-score-input">Home Score:</label>
+    <input type="number" name="homeScore" id="home-score-input">
+    <label for="away-score-input">Away Score:</label>
+    <input type="number" name="awayScore" id="away-score-input">
+    <button type="submit">Update Prediction</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

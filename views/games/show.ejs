@@ -38,6 +38,11 @@
       <% game.scorePrediction?.forEach(prediction => { %>
         <li>
           <%= prediction.homeScore %> - <%= prediction.awayScore %>  <%= prediction.commenter.name %>
+          <% if (prediction.commenter.equals(user?.profile._id)) { %>
+            <a href="/games/<%= game._id %>/scorePrediction/<%= prediction._id %>/edit"> 
+              <button class="btn">Edit Prediction</button>
+            </a>
+          <% } %>
         </li> 
       <% }) %>
     </ul>
