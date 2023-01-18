@@ -22,6 +22,10 @@ router.post("/:id/players", gamesCtrl.addToPlayerPrediction)
 router.post("/:id/scorePrediction", isLoggedIn, gamesCtrl.addScorePrediction)
 
 router.delete("/:id", gamesCtrl.delete)
+router.delete("/:gameId/scorePrediction/:predictionId",
+	isLoggedIn,
+	gamesCtrl.deletePrediction
+)
 
 export {
 	router

@@ -186,6 +186,29 @@ function updatePrediction(req, res) {
   })
 }
 
+function deletePrediction(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    const prediction = game.scorePrediction.id(req.params.predictionId)
+    if (prediction.commenter.equals(req.user.profile._id)) {
+      game.scorePrediction.remove(prediction)
+      game.save()
+      .then(() => {
+        res.redirect(`/games/${game._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/games')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
 
 export {
   index,
@@ -199,4 +222,5 @@ export {
   addScorePrediction,
   editPrediction,
   updatePrediction,
+  deletePrediction,
 }
