@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/games/index.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -8,7 +8,7 @@
     <thead>
       <tr>
         <th>Game</th>
-        <th>Match Date</th>
+        <th>Date</th>
         <th>Game Details</th>
       </tr>
     </thead>
@@ -17,7 +17,7 @@
         <tr>
           <td><%= game.title %></td>
           <td><%= game.date.toLocaleDateString() %></td>
-          <td><a href="/games/<%= game._id %>">DETAILS</a></td>
+          <td><a href="/games/<%= game._id %>">Display Details</a></td>
           <td>
             <form 
               action="/games/<%= game._id %>?_method=DELETE"

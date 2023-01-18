@@ -1,0 +1,13 @@
+th {
+  text-align: left;
+  font-size: 20px;
+  margin: 30px;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
