@@ -39,7 +39,10 @@ function index(req, res) {
 
 function show(req, res) {
   Game.findById(req.params.id)
-  .populate("playerPrediction")
+  .populate([
+    {path: "playerPrediction"},
+    {path: "scorePrediction.commenter"}
+  ])
   .then(game => {
     Player.find({_id: {$nin: game.playerPrediction}})
     .then (players => {
@@ -119,6 +122,26 @@ function addToPlayerPrediction(req, res) {
   })
 }
 
+function addScorePrediction(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    req.body.commenter = req.user.profile._id
+    game.scorePrediction.push(req.body)
+    game.save()
+    .then(()=> {
+      res.redirect(`/games/${game._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/games')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
 
 export {
   index,
@@ -129,4 +152,5 @@ export {
   edit,
   update,
   addToPlayerPrediction,
+  addScorePrediction,
 }

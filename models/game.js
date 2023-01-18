@@ -2,6 +2,12 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
+const predictionSchema = new Schema({
+  homeScore: Number,
+  awayScore: Number,
+  commenter: { type: Schema.Types.ObjectId, ref: "Profile"}
+})
+
 const gameSchema = new Schema({
   title: {
     type: String,
@@ -11,7 +17,8 @@ const gameSchema = new Schema({
     type: Date,
     required: true,
   },
-  playerPrediction: [{type: Schema.Types.ObjectId, ref: "Player"}]
+  playerPrediction: [{type: Schema.Types.ObjectId, ref: "Player"}],
+  scorePrediction: [predictionSchema]
 }, {
   timestamps: true
 })

@@ -14,7 +14,7 @@
         <button>Edit Game</button>
       </a>
     </div>
-    <div>Player Score Prediction:</div>
+    <div>Select player you predict will make a goal:</div>
     <ul>
       <% game.playerPrediction.forEach(player => { %>
         <li><%= player.player %></li>
@@ -30,6 +30,25 @@
     </select>
     <button type="submit">Add Player</button>
   </form>
+
+  <h2>Score Prediction</h2>
+  <% if (user) { %>
+    <h3>Add a prediction</h3>
+    <ul>
+      <% game.scorePrediction?.forEach(prediction => { %>
+        <li>
+          <%= prediction.homeScore %> - <%= prediction.awayScore %>  <%= prediction.commenter.name %>
+        </li> 
+      <% }) %>
+    </ul>
+    <form action="/games/<%= game._id %>/scorePrediction" method="POST">
+      <label for="home-score-input">Home Score:</label>
+      <input type="number" name="homeScore" id="home-score-input">
+      <label for="away-score-input">Away Score:</label>
+      <input type="number" name="awayScore" id="away-score-input">
+      <button>Add Prediction</button>
+    </form>
+  <% } %>
 
 </main>
   
