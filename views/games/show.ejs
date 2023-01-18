@@ -8,13 +8,13 @@
     <div>Title: </div>
     <div><%= game.title %></div>
     <div>Date: </div>
-    <div><%= game.date %></div>
+    <div><%= game.date.toLocaleDateString() %></div>
     <div>
       <a href="/games/<%= game._id %>/edit">
         <button>Edit Game</button>
       </a>
     </div>
-    <div>Select player you predict will make a goal:</div>
+    <div>Select player you predict will make a goal in this game:</div>
     <ul>
       <% game.playerPrediction.forEach(player => { %>
         <li><%= player.player %></li>

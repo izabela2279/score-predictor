@@ -15,6 +15,9 @@ const gameSchema = new Schema({
   },
   date: {
     type: Date,
+    default: function(){
+      return Date().getFullYear()
+    },
     required: true,
   },
   playerPrediction: [{type: Schema.Types.ObjectId, ref: "Player"}],
