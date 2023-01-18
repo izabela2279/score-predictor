@@ -18,7 +18,7 @@ router.put("/:id", isLoggedIn, gamesCtrl.update)
 router.put("/:gameId/scorePrediction/:predictionId", isLoggedIn, gamesCtrl.updatePrediction)
 
 router.post("/", gamesCtrl.create)
-router.post("/:id/players", gamesCtrl.addToPlayerPrediction)
+router.post("/:id/players", isLoggedIn, gamesCtrl.addToPlayerPrediction)
 router.post("/:id/scorePrediction", isLoggedIn, gamesCtrl.addScorePrediction)
 
 router.delete("/:id", isLoggedIn, gamesCtrl.delete)
