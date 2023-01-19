@@ -67,7 +67,14 @@ function show(req, res) {
 function deleteGame(req, res) {
   Game.findByIdAndDelete(req.params.id)
   .then(game => {
-    res.redirect("/games") 
+    if (game.creator.equals(req.user.profile._id)) {
+      game.delete()
+      .then(()=> {
+        res.redirect("/games") 
+      })
+    } else {
+      throw new Error('Only creator can delete the game')
+    }
   })
   .catch(err => {
     console.log(err)

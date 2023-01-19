@@ -19,12 +19,14 @@
           <td><%= game.date.toLocaleDateString() %></td>
           <td><a id="link" href="/games/<%= game._id %>">Display Details</a></td>
           <td>
+            <% if (game.creator.equals(user?.profile._id)) { %>
             <form 
               action="/games/<%= game._id %>?_method=DELETE"
               method="POST"
             >
               <button>Delete Game</button>
             </form>
+            <% } %>
           </td>
         </tr>
       <% }) %>
