@@ -20,13 +20,13 @@ Score Predictor is an app where users can make a prediction on upcoming games. A
 * Favicon: Icons
 
 ### Minimum Viable Product: 
-- [ ] As a user or a guest, I want to view a page with all games listed.
-- [ ] As a user, I want to see a form so that I can add a game directly from the index page.
-- [ ] As a user, I want to update and delete a game.
-- [ ] As a user or a guest, I want to be able to view game details.
-- [ ] As a user, I want to add players to a game.
-- [ ] As a user, I want to make score predictions on a game.
-- [ ] As a user, I want to update and delete a score prediction.
+- [X] As a user or a guest, I want to view a page with all games listed.
+- [ X ] As a user, I want to see a form so that I can add a game directly from the index page.
+- [ X ] As a user, I want to update and delete a game.
+- [ X ] As a user or a guest, I want to be able to view game details.
+- [ X ] As a user, I want to add players to a game.
+- [ X ] As a user, I want to make score predictions on a game.
+- [ X ] As a user, I want to update and delete a score prediction.
 
 <a href= https://trello.com/b/p1KpuYE8/game-predictor >Click here to view planning materials</a>
 
