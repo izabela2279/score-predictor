@@ -17,7 +17,7 @@
         <tr>
           <td><%= game.title %></td>
           <td><%= game.date.toLocaleDateString() %></td>
-          <td><a href="/games/<%= game._id %>">Display Details</a></td>
+          <td><a id="link" href="/games/<%= game._id %>">Display Details</a></td>
           <td>
             <form 
               action="/games/<%= game._id %>?_method=DELETE"

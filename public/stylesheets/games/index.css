@@ -12,8 +12,28 @@ td {
   padding-right: 10px;
 }
 
+button {
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
 button:hover {
   color: white;
   background-color: green;
   border: 2px solid white;
+}
+
+#link {
+  text-decoration: none;
+  color: white;
+}
+
+#link:hover {
+  text-decoration: none;
+  color: green;
 }

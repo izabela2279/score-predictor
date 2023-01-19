@@ -28,8 +28,13 @@ label, input {
 }
 
 button {
-  margin: 15px;
-  padding: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 16px;
 }
 
 button:hover {

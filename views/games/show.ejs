@@ -17,7 +17,7 @@
   </section>
 
   <h2>Players in the game:</h2>
-  <section>
+  <section id="player-section" >
     <ul>
       <% game.playerPrediction.forEach(player => { %>
         <li><%= player.player %></li>
@@ -37,7 +37,7 @@
   <section id="score-display">
   <% if (user) { %>
     <h4>Add a prediction</h4>
-    <ul>
+    <ul id="score-ul">
       <% game.scorePrediction?.forEach(prediction => { %>
         <li id="prediction-list">
           <%= prediction.homeScore %> - <%= prediction.awayScore %>  <%= prediction.commenter.name %>
