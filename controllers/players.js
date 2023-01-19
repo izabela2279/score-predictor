@@ -1,10 +1,10 @@
-import { Player } from '../models/player.js'
+import { Player } from "../models/player.js"
 
 function newPlayer(req, res) {
   Player.find({})
   .then(players => {
-    res.render('players/new', {
-      title: 'Add Player',
+    res.render("players/new", {
+      title: "Add Player",
       players: players,
     })
   })
@@ -19,7 +19,6 @@ function create(req, res) {
     res.redirect("/players/new")
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/games")
   })
 }

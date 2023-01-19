@@ -14,11 +14,9 @@ function create(req, res) {
   req.body.creator = req.user.profile._id
   Game.create(req.body)
   .then(game => {
-    console.log(game);
     res.redirect(`/games/${game._id}`)
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/games")
   })
 }
@@ -32,7 +30,6 @@ function index(req, res) {
     })
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/")
   })
 }
@@ -54,12 +51,10 @@ function show(req, res) {
       }) 
     })
     .catch(err => {
-      console.log(err)
       res.redirect("/games")    
     })
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/")
   })
 }
@@ -73,11 +68,10 @@ function deleteGame(req, res) {
         res.redirect("/games") 
       })
     } else {
-      throw new Error('Only creator can delete the game')
+      throw new Error("Only creator can delete the game")
     }
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/games")
   })
 }
@@ -91,7 +85,6 @@ function edit(req, res) {
     })    
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/")
   })
 }
@@ -105,15 +98,13 @@ function update(req, res) {
     if (game.creator.equals(req.user.profile._id)){
       game.updateOne(req.body)
       .then(()=> {
-        console.log(game);
         res.redirect(`/games/${game._id}`)
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error("Only creator can update the game")
     }  
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/")
   })
 }
@@ -124,15 +115,13 @@ function addToPlayerPrediction(req, res) {
     game.playerPrediction.push(req.body.playerId)
     game.save()
 		.then(() => {
-		  res.redirect(`/games/${game._id}`)
+		res.redirect(`/games/${game._id}`)
 		})
     .catch(err => {
-      console.log(err);
       res.redirect("/games")
     })
   })
   .catch(err => {
-    console.log(err);
     res.redirect("/games")
   })
 }
@@ -147,13 +136,11 @@ function addScorePrediction(req, res) {
       res.redirect(`/games/${game._id}`)
     })
     .catch(err => {
-      console.log(err)
-      res.redirect('/games')
+      res.redirect("/games")
     })
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/games')
+    res.redirect("/games")
   })
 }
 
@@ -162,18 +149,17 @@ function editPrediction(req, res) {
   .then(game => {
     const prediction = game.scorePrediction.id(req.params.predictionId)
     if (prediction.commenter.equals(req.user.profile._id)) {
-      res.render('games/editPrediction', {
+      res.render("games/editPrediction", {
         game, 
         prediction,
-        title: 'Update Prediction'
+        title: "Update Prediction"
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error("Only creator can update the prediction")
     }
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/games')
+    res.redirect("/games")
   })
 }
 
@@ -188,16 +174,14 @@ function updatePrediction(req, res) {
         res.redirect(`/games/${game._id}`)
       })
       .catch(err => {
-        console.log(err)
-        res.redirect('/games')
+        res.redirect("/games")
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error("Only creator can update the prediction")
     }
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/games')
+    res.redirect("/games")
   })
 }
 
@@ -212,16 +196,14 @@ function deletePrediction(req, res) {
         res.redirect(`/games/${game._id}`)
       })
       .catch(err => {
-        console.log(err)
-        res.redirect('/games')
+        res.redirect("/games")
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error("Only creator can delete the prediction")
     }
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/games')
+    res.redirect("/games")
   })
 }
 

@@ -18,7 +18,7 @@
     </div>
   </section>
 
-  <h2>Players in the game:</h2>
+  <h2>Game Lineup</h2>
   <section id="player-section" >
     <ul>
       <% game.playerPrediction.forEach(player => { %>
@@ -34,11 +34,11 @@
     <button type="submit">Add Player</button>
     </form>
   </section>
-
-  <h3>Score Prediction</h3>
-  <section id="score-display">
+  
   <% if (user) { %>
-    <h4>Add a prediction</h4>
+  <h4>Score Prediction</h4>
+  <section id="score-display">
+    <h5>Add a prediction</h5>
     <ul id="score-ul">
       <% game.scorePrediction?.forEach(prediction => { %>
         <li id="prediction-list">
@@ -65,8 +65,8 @@
       <input type="number" name="awayScore" id="away-score-input">
       <button>Add Prediction</button>
     </form>
-  <% } %>
 </section>
+<% } %>
 
 </main>
   

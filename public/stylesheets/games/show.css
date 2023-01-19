@@ -4,12 +4,12 @@ main {
   flex-direction: column;
 }
 
-h2, h3 {
+h2, h3, h4 {
   font-size: 25px;
 }
 
-h4 {
-  font-size: 20px;
+h5 {
+  font-size: 22px;
 }
   
 ul {
@@ -33,7 +33,7 @@ section {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 8px;
-  justify-content: space-around;
+  justify-content: center;
   padding: 20px;
   text-align: center;
   margin: 20px;
@@ -53,6 +53,8 @@ section {
   display:flex;
   flex-direction: row;
   align-items: center;
+  margin: 15px;
+  justify-content: center;
 }
 
 .btn {
