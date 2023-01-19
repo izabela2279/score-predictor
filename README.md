@@ -2,7 +2,7 @@
 
 
 ## Objective:
-Score Predictor is an app where users can make a prediction on upcoming games. A user can create and game title they want and add soccer players. Once a game has been created the user is able to add players to that game and make a prediction for the home team scorre and away team score. The user has an option to update or delete their score predictions and teh game itself.
+Score Predictor is an app where users can keep track of their score predictions on soccer games. A user can create games and add soccer players. Once a game has been created the user is able to add players to that game and make a prediction for the home team score and away team score. The user has an option to update or delete their score predictions and the game created.
 
 ## View Current Games:
 <a href= https://score-predictor.fly.dev/ >Click here to make a prediction.</a>

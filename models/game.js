@@ -20,6 +20,7 @@ const gameSchema = new Schema({
     },
     required: true,
   },
+  creator: {type: Schema.Types.ObjectId, ref: "Profile"},
   playerPrediction: [{type: Schema.Types.ObjectId, ref: "Player"}],
   scorePrediction: [predictionSchema]
 }, {

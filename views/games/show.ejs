@@ -5,14 +5,16 @@
 <main>
   <h1><%= title %></h1>
   <section>
-    <div>Title: </div>
+    <div>Title:</div>
     <div><%= game.title %></div>
     <div>Date: </div>
     <div><%= game.date.toLocaleDateString() %></div>
     <div>
+    <% if (game.creator.equals(user?.profile._id)) { %>
       <a href="/games/<%= game._id %>/edit">
         <button>Edit Game</button>
       </a>
+    <% } %>   
     </div>
   </section>
 

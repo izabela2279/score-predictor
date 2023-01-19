@@ -11,7 +11,7 @@ function create(req, res) {
   for (const key in req.body) {
     if(req.body[key] === "") delete req.body[key]
   }
-  console.log(req.body);
+  req.body.creator = req.user.profile._id
   Game.create(req.body)
   .then(game => {
     console.log(game);
@@ -40,6 +40,7 @@ function index(req, res) {
 function show(req, res) {
   Game.findById(req.params.id)
   .populate([
+    {path: "creator"},
     {path: "playerPrediction"},
     {path: "scorePrediction.commenter"}
   ])
@@ -94,8 +95,15 @@ function update(req, res) {
   }
   Game.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(game => {
-    console.log(game);
-    res.redirect(`/games/${game._id}`)
+    if (game.creator.equals(req.user.profile._id)){
+      game.updateOne(req.body)
+      .then(()=> {
+        console.log(game);
+        res.redirect(`/games/${game._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }  
   })
   .catch(err => {
     console.log(err)
