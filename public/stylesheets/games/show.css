@@ -1,3 +1,17 @@
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h2, h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 20px;
+}
+  
 ul {
   margin: 0 0 16px;
   padding: 0;
@@ -15,9 +29,23 @@ form * {
 }
 
 section {
+  border: 10px solid white;
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 16px;
+  grid-gap: 8px;
+  justify-content: space-around;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+#score-display {
+  display:flex;
+  flex-direction: column;
+}
+
+#prediction-list{
+  display:flex;
 }
 
 .btn {

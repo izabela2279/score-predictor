@@ -14,40 +14,43 @@
         <button>Edit Game</button>
       </a>
     </div>
-    <h2>Select player you predict will make a goal in this game:</h2>
+  </section>
+
+  <h2>Players in the game:</h2>
+  <section>
     <ul>
       <% game.playerPrediction.forEach(player => { %>
         <li><%= player.player %></li>
       <% }) %>
     </ul>
-  </section>
-
-  <form id="add-player-prediction" action="/games/<%= game._id %>/players" method="POST">
+    <form id="add-player-prediction" action="/games/<%= game._id %>/players" method="POST">
     <select name="playerId">
       <% players.forEach(player => { %>
         <option value="<%= player._id %>"><%= player.player %></option>
       <% }) %>
     </select>
     <button type="submit">Add Player</button>
-  </form>
+    </form>
+  </section>
 
   <h3>Score Prediction</h3>
+  <section id="score-display">
   <% if (user) { %>
     <h4>Add a prediction</h4>
     <ul>
       <% game.scorePrediction?.forEach(prediction => { %>
-        <li>
+        <li id="prediction-list">
           <%= prediction.homeScore %> - <%= prediction.awayScore %>  <%= prediction.commenter.name %>
           <% if (prediction.commenter.equals(user?.profile._id)) { %>
             <a href="/games/<%= game._id %>/scorePrediction/<%= prediction._id %>/edit"> 
-              <button class="btn">Edit Prediction</button>
+              <button class="btn">Edit</button>
             </a>
             <form 
             action="/games/<%= game._id %>/scorePrediction/<%= prediction._id %>?_method=DELETE" 
             method="POST"
             class="inline"
           >
-            <button class="btn" type="submit">Delete Prediction</button>
+            <button class="btn" type="submit">Delete</button>
           </form>
           <% } %>
         </li> 
@@ -61,6 +64,7 @@
       <button>Add Prediction</button>
     </form>
   <% } %>
+</section>
 
 </main>
   

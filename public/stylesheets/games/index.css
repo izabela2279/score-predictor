@@ -11,3 +11,9 @@ td {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+button:hover {
+  color: white;
+  background-color: green;
+  border: 2px solid white;
+}

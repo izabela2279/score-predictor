@@ -10,10 +10,17 @@ h1 {
 }
 
 #new-form {
-  border: 5px solid white;
+  border: 10px solid white;
   display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 8px;
   justify-content: space-around;
   padding: 20px;
+  text-align: center;
+}
+
+#add-button {
+  display: center;
 }
 
 label, input {
@@ -28,7 +35,7 @@ button {
 button:hover {
   color: white;
   background-color: green;
-  border: 2px solid white;
+  border: 4px solid white;
 }
 
 #box {
