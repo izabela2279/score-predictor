@@ -1,7 +1,7 @@
-import passport from 'passport'
-import {GoogleOneTapStrategy as GoogleStrategy} from 'passport-google-one-tap'
-import { User } from '../models/user.js'
-import { Profile } from '../models/profile.js'
+import passport from "passport"
+import {GoogleOneTapStrategy as GoogleStrategy} from "passport-google-one-tap"
+import { User } from "../models/user.js"
+import { Profile } from "../models/profile.js"
 
 passport.use(
   new GoogleStrategy(
@@ -58,7 +58,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (userId, done) {
   User.findById(userId)
-  .populate('profile', 'name avatar')
+  .populate("profile", "name avatar")
   .then(user => {
     console.log(user);
     done(null, user)

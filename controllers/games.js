@@ -45,7 +45,7 @@ function show(req, res) {
     Player.find({_id: {$nin: game.playerPrediction}})
     .then (players => {
       res.render("games/show", { 
-        title: "Game Detail", 
+        title: "Game Details", 
         game: game,
         players: players,
       }) 
