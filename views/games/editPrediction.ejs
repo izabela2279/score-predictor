@@ -1,9 +1,10 @@
-<%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+<%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/games/edit.css" />
+<%- include("../partials/nav") %>
 
 <section>
   <h1>Edit your prediction!</h1>
-  <form 
+  <form id="edit-form"
     action="/games/<%= game._id %>/scorePrediction/<%= prediction._id %>?_method=PUT"
     method="POST"
   >
@@ -15,4 +16,4 @@
   </form>
 </section>
 
-<%- include('../partials/footer') %>
+<%- include("../partials/footer") %>

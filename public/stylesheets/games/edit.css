@@ -16,6 +16,16 @@ h1 {
   padding: 20px;
 }
 
+#edit-form {
+  border: 10px solid white;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: fit-content;
+}
+
 label, input {
   margin: 10px;
 }
